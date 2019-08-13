@@ -1,0 +1,46 @@
+<h1>Welcome!</h1>
+
+<div class="play-container">
+    <p>You've clicked <span (click)="countClick()">this</span>{{ clickCounter }} times.</p>
+</div>
+
+<div class="play-container">
+    <p>
+        <input type="text" [(ngModel)]="name">
+        <br>
+        <strong>You said: </strong> {{ name }}
+    </p>
+</div>
+
+<div class="play-container" [class.active]="clickCounter > 4">
+    <ng-template [ngIf]="clickCounter > 4" [ngIfElse]="none0">
+        <p>Click Counter <strong>IS GREATER</strong> than 4.</p>
+    </ng-template>
+
+    <ng-template #none0>
+        <p>Click Counter <strong>IS NOT GREATER</strong> than 4.</p>
+    </ng-template>
+</div>
+
+<div class="play-container" [style.background-color]="clickCounter > 4 ? 'green' : 'red'">
+    <ng-template [ngIf]="clickCounter > 4" [ngIfElse]="none">
+        <p>Click Counter <strong>IS GREATER</strong> than 4.</p>
+    </ng-template>
+
+    <ng-template #none>
+        <p>Click Counter <strong>IS NOT GREATER</strong> than 4.</p>
+    </ng-template>
+</div>
+
+<div class="play-container" [ngStyle]="{
+    'background-color': clickCounter > 4 ? 'blue' : 'pink',
+    'border':           clickCounter > 4 ? '4px solid pink' : '4px solid blue'
+}">
+    <ng-template [ngIf]="clickCounter > 4" [ngIfElse]="none1">
+        <p>Click Counter <strong>IS GREATER</strong> than 4. Border PINK</p>
+    </ng-template>
+
+    <ng-template #none1>
+        <p>Click Counter <strong>IS NOT GREATER</strong> than 4. Border BLUE</p>
+    </ng-template>
+</div>

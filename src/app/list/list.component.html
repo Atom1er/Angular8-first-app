@@ -1,0 +1,9 @@
+<p>list works!</p>
+
+<ul *ngIf="books">
+    <li  *ngFor="let book of books">
+        <p class="name">{{ book.name }}</p>
+        <p class="country">{{ book.country }}</p>
+        <a href="{{ book.website_url }}" class="site">site</a>
+    </li>
+</ul>
